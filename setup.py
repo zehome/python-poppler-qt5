@@ -276,8 +276,7 @@ class build_ext(build_ext_base):
             cmd += ['-I', self._sip_sipfiles_dir()]
         if tag:
             cmd += ['-t', tag]
-        if not check_qtxml():
-            cmd += ["-x", "QTXML_AVAILABLE"]     # mark QtXml not supported
+        cmd += ["-x", "QTXML_AVAILABLE"]     # mark QtXml not supported
         cmd += [
             "-c", self.build_temp,
             "-b", sbf,
