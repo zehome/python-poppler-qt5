@@ -1,5 +1,5 @@
 namespace Poppler {
-    
+
 class PageTransition {
 %TypeHeaderCode
 #include <qt5/poppler-qt5.h>
@@ -7,7 +7,7 @@ class PageTransition {
 %End
 
 public:
-    
+
     enum Type {
         Replace = 0,
         Split,
@@ -26,7 +26,7 @@ public:
         Horizontal = 0,
         Vertical,
     };
-    
+
     enum Direction {
         Inward = 0,
         Outward,
@@ -47,8 +47,7 @@ public:
     bool isRectangular() const;
 }; // class PageTransition
 
-    
+
 }; // namespace Poppler
-    
+
 /* kate: indent-width 4; space-indent on; hl c++; indent-mode cstyle; */
-    

@@ -68,13 +68,13 @@ public:
     QList<Poppler::FormField*> formFields() const;
     double duration() const;
     QString label() const;
-    
+
     void addAnnotation(const Poppler::Annotation *ann);
 
 private:
     Page();
     Page( const Poppler::Page & );
-    
+
 }; // class Page
 
 }; // namespace Poppler
