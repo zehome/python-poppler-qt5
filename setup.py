@@ -2,7 +2,7 @@
 
 project = dict(
     name = 'python-poppler-qt5',
-    version = '0.25.0',
+    version = '0.25.1',
     description = 'A Python binding to Poppler-Qt5',
     long_description = (
         'A Python binding to Poppler-Qt5 that aims for '
