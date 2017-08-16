@@ -270,9 +270,13 @@ class build_ext(build_ext_base):
             tag = 'POPPLER_V0_24_0'
         elif ver < (0, 28, 0):
             tag = 'POPPLER_V0_24_5'
-        else:
+        elif ver < (0, 31, 0):
             tag = 'POPPLER_V0_28_0'
-        
+        elif ver < (0, 36, 0):
+            tag = 'POPPLER_V0_31_0'
+        else:
+            tag = 'POPPLER_V0_36_0'
+
         cmd = [sip_bin]
         if hasattr(self, 'sip_opts'):
             cmd += self.sip_opts

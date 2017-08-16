@@ -19,6 +19,8 @@
     POPPLER_V0_24_0
     POPPLER_V0_24_5
     POPPLER_V0_28_0
+    POPPLER_V0_31_0
+    POPPLER_V0_36_0
 }
 
 %ModuleHeaderCode

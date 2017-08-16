@@ -35,8 +35,12 @@ public:
     PageTransition(const Poppler::PageTransition &pt);
     ~PageTransition();
     Type type() const;
-    int duration() const;
+%If(POPPLER_V0_20_0 - POPPLER_V0_36_0)
+    double durationReal() const;
+%End
+%If(POPPLER_V0_36_0 - )
     Alignment alignment() const;
+%End
     Direction direction() const;
     int angle() const;
     double scale() const;
