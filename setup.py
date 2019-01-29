@@ -2,7 +2,7 @@
 
 project = dict(
     name = 'python-poppler-qt5',
-    version = '0.25.1',
+    version = '0.25.2',
     description = 'A Python binding to Poppler-Qt5',
     long_description = (
         'A Python binding to Poppler-Qt5 that aims for '
@@ -181,9 +181,9 @@ class build_ext(build_ext_base):
             return self.pyqtconfig.qt_inc_dir
 
         try:
-            qt_version = subprocess.check_output([self.qmake_bin,
+            qt_version = subprocess.check_output(" ".join([self.qmake_bin,
                                                   '-query',
-                                                  'QT_VERSION'])
+                                                  'QT_VERSION']), shell=True)
             qt_version = qt_version.strip().decode("ascii")
         except (OSError, subprocess.CalledProcessError) as e:
             raise SystemExit('Failed to determine Qt version (%s).' % e)
@@ -194,9 +194,9 @@ class build_ext(build_ext_base):
                              '--qmake-bin=' % qt_version)
 
         try:
-            result =  subprocess.check_output([self.qmake_bin,
+            result =  subprocess.check_output(" ".join([self.qmake_bin,
                                                '-query',
-                                               'QT_INSTALL_HEADERS'])
+                                               'QT_INSTALL_HEADERS']), shell=True)
             return result.strip().decode(sys.getfilesystemencoding())
         except (OSError, subprocess.CalledProcessError) as e:
             raise SystemExit('Failed to determine location of Qt headers (%s).' % e)
