@@ -2,7 +2,7 @@
 
 project = dict(
     name = 'python-poppler-qt5',
-    version = '0.25.2',
+    version = '0.25.3',
     description = 'A Python binding to Poppler-Qt5',
     long_description = (
         'A Python binding to Poppler-Qt5 that aims for '
@@ -292,6 +292,13 @@ class build_ext(build_ext_base):
         cmd += shlex.split(self.pyqt_sip_flags)  # use same SIP flags as for PyQt5
         cmd.append(source)
         self.spawn(cmd)
+
+    def get_libraries(self, ext):
+        if sys.platform == "win32":
+            return super(build_ext, self).get_libraries(ext)
+        else:
+            return ext.libraries
+
 
 if platform.system() == 'Windows':
    # Enforce libraries to link against on Windows
