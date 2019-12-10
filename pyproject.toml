@@ -1,19 +1,18 @@
-# Specify sip v5 as the build system for the package.
 [build-system]
 requires = ["sip >=5, <6", "PyQt-builder >=1, <2"]
 build-backend = "sipbuild.api"
 
-# Specify the PEP 566 metadata for the project.
 [tool.sip.metadata]
 name = "popplerqt5"
 
 [tool.sip.project]
 sip-include-dirs = [
-    "/Users/admin/.conan/data/pyqt/5.13.1/clarisys/stable/source/pyqt-src/sip"
+    "/usr/share/sip/PyQt5"
 ]
 
 [tool.sip.bindings.popplerqt5]
-libraries = []
+tags = ["POPPLER_V0_64_0"]
+libraries = ["poppler-qt5"]
 disabled-features = ["QTXML_AVAILABLE"]
-library-dirs = []
-include-dirs = []
+# library-dirs = ["/usr/lib/x86_64-linux-gnu"]
+# include-dirs = []

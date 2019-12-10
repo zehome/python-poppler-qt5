@@ -5,14 +5,16 @@ from sipbuild import Option, Project
 from sipbuild import Option
 
 
-class Poppler(Project):
+class Poppler(PyQtProject):
     def __init__(self):
         super().__init__()
         self.qml_debug = False
-        # /Users/admin/.conan/data//poppler/0.80.0/clarisys/stable/package/630d44cde0674cd46a6832f68a09065394c5d148/include/poppler
-        self.py_pylib_dir = None
         self.builder_factory = QmakeBuilder
-#        self.bindings_factories = [PopplerBinding]
+        self.bindings_factories = [PopplerBinding]
+
+    def apply_nonuser_defaults(self, tool):
+        super().apply_nonuser_defaults(tool)
+        self.sip_module = None
 
     def get_options(self):
         options = super().get_options()
@@ -38,12 +40,12 @@ class Poppler(Project):
 
     def update(self, tool):
         poppler_bindings = self.bindings['popplerqt5']
-        if self.poppler_include_dir is not None:
+        if self.poppler_include_dir:
             poppler_bindings.include_dirs = [self.poppler_include_dir]
-        if self.poppler_library_dir is not None:
+        if self.poppler_library_dir:
             poppler_bindings.library_dirs = [self.poppler_library_dir]
 
-#class PopplerBinding(PyQtBindings):
-#    def __init__(self, project):
-#        super().__init__(project, 'popplerqt5', sip_file='popplerqt5mod.sip')
 
+class PopplerBinding(PyQtBindings):
+    def __init__(self, project):
+        super().__init__(project, 'popplerqt5', sip_file='popplerqt5.sip')
