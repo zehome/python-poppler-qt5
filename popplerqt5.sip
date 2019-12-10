@@ -7,6 +7,7 @@
 
 %Feature QTXML_AVAILABLE
 
+typedef qint64 Q_PID;
 %Import QtCore/QtCoremod.sip
 %Import QtGui/QtGuimod.sip
 %If(QTXML_AVAILABLE)
